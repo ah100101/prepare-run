@@ -6,14 +6,13 @@
         prepare-run
       </h1>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
+        <button
+          v-on:click="callFunction()"
           rel="noopener noreferrer"
           class="button--green"
         >
-          Documentation
-        </a>
+          Call Function
+        </button>
         <a
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
@@ -28,7 +27,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    callFunction: () => {
+      fetch('https://us-central1-prepare-run.cloudfunctions.net/helloWorld')
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }
+  }
+}
 </script>
 
 <style>
