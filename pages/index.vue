@@ -30,8 +30,9 @@
 export default {
   methods: {
     callFunction: () => {
+      // fetch('http://localhost:5001/prepare-run/us-central1/helloWorld')
       fetch('https://us-central1-prepare-run.cloudfunctions.net/helloWorld')
-        .then(response => response.json())
+        .then(response => response.text())
         .then(data => console.log(data))
     }
   }
